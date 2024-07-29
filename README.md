@@ -5,10 +5,7 @@ A Heads-Up Display (HUD) is a camera overlay (an image draw over the image) that
 This project implements an overlay drawn using QT, integrated with a 6050 MPU and running on a Toradex Apalis iMX8QM device.
 
 # Demo
-<video width="640" height="480" controls>
-  <source src="./assets/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video src="https://docs.toradex.com/115438-HUD%20demo.mp4" width="640" height="480"></video>
 
 
 # Project
@@ -19,10 +16,8 @@ This project implements an overlay drawn using QT, integrated with a 6050 MPU an
 - [QT Drawing](src/window.py)
 
 ## Camera support
-<video width="640" height="480" controls>
-  <source src="./assets/camera_support.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<video src="https://github.com/user-attachments/assets/3a171a6b-d128-4473-93ac-e7736bf0bb58
+" width="640" height="480" controls></video>
 
 
 [Onshape CAD Project](https://cad.onshape.com/documents/2a28808b03ecd87718e7eb28/w/81ed70e87d40cad4075aa8fc/e/4d436e70dbfc37b4c7834171?renderMode=0&uiState=66a78e585193994982861507)
