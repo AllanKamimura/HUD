@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  weston:
+    image: torizon/weston:${CT_TAG_WESTON}
+    container_name: weston
+    network_mode: host
+    cap_add:
+      - CAP_SYS_TTY_CONFIG
+    volumes:
+      - /dev:/dev
+      - /tmp:/tmp
+      - /run/udev:/run/udev
+    devices:
+      - "/dev/tty7:/dev/tty7"
+    device_cgroup_rules:
+      - 'c 4:* rmw'
+      - 'c 13:* rmw'
+      - 'c 199:* rmw'
+      - 'c 226:* rmw'
+    command: --developer weston-launch --tty=/dev/tty7 --user=torizon
+
+  mpu:
+    image: allanktoradex/mpu6050:latest
+    container_name: mpu
+    network_mode: host
+    cap_add:
+      - CAP_SYS_TTY_CONFIG
+    volumes:
+      - /dev:/dev
+      - /tmp:/tmp
+      - /run/udev:/run/udev
+      - /var/run/dbus:/var/run/dbus
+      - /dev/galcore:/dev/galcore
+    environment:
+      ACCEPT_FSL_EULA: '1'
+      MPU_I2C_BUS: '4'
+      MPU_DEVICE_ADDRESS: '0x69'
+      MPU_dt: 0.001
+    privileged: true
+    depends_on:
+      - weston
